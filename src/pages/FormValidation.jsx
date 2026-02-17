@@ -39,7 +39,7 @@ const FormValidation = () => {
     } else if (!emailReg.test(formvalue.email)) {
       newErrors.email = "Invalid email format"
     }
-
+ 
     if (!formvalue.password.trim()) {
       newErrors.password = "Password is required"
     } else if (formvalue.password.length < 8) {
@@ -78,13 +78,13 @@ const FormValidation = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50 flex items-center justify-center p-4">
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden">
+      <div className="w-full max-w-sm md:max-w-md lg:max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden">
         {/* Header */}
-        <div className="bg-gradient-to-r from-rose-600 to-pink-600 p-6 text-white">
-          <h2 className="text-3xl font-bold text-center mb-2">
+        <div className="bg-gradient-to-r from-rose-600 to-pink-600 p-5 md:p-6 lg:p-8 text-white">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">
             📝 Form Validation
           </h2>
-          <p className="text-center text-rose-100">
+          <p className="text-center text-rose-100 text-sm md:text-base">
             Please fill in your details
           </p>
         </div>

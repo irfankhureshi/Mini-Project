@@ -13,137 +13,95 @@ function Pagination() {
   const getVisiblePages = () => {
     const delta = 2;
     const range = [];
-    const rangeWithDots = [];
+    const pages = [];
 
-    for (let i = Math.max(2, currentPage - delta); i <= Math.min(totalPages - 1, currentPage + delta); i++) {
+    for (
+      let i = Math.max(2, currentPage - delta);
+      i <= Math.min(totalPages - 1, currentPage + delta);
+      i++
+    ) {
       range.push(i);
     }
 
-    if (currentPage - delta > 2) {
-      rangeWithDots.push(1, '...');
-    } else {
-      rangeWithDots.push(1);
-    }
+    pages.push(1);
+    if (currentPage - delta > 2) pages.push("...");
+    pages.push(...range);
+    if (currentPage + delta < totalPages - 1) pages.push("...");
+    if (totalPages > 1) pages.push(totalPages);
 
-    rangeWithDots.push(...range);
-
-    if (currentPage + delta < totalPages - 1) {
-      rangeWithDots.push('...', totalPages);
-    } else if (totalPages > 1) {
-      rangeWithDots.push(totalPages);
-    }
-
-    return rangeWithDots;
+    return pages;
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 flex items-center justify-center p-4">
-      <div className="w-full max-w-2xl bg-white rounded-2xl shadow-2xl overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-cyan-50 flex items-center justify-center p-4">
+      <div className="w-full max-w-2xl bg-white rounded-2xl shadow-xl overflow-hidden">
+
         {/* Header */}
-        <div className="bg-gradient-to-r from-emerald-600 to-teal-600 p-6 text-white">
-          <h1 className="text-3xl font-bold text-center mb-2">
-            📄 Pagination
-          </h1>
-          <p className="text-center text-emerald-100">
-            Navigate through your data
-          </p>
+        <div className="bg-gradient-to-r from-emerald-600 to-teal-600 p-6 text-white text-center">
+          <h1 className="text-2xl font-bold">Pagination</h1>
         </div>
 
         <div className="p-6">
-          {/* Page Size Selector */}
-          <div className="flex items-center justify-center mb-6">
-            <div className="bg-gray-50 rounded-lg p-4 flex items-center space-x-3">
-              <span className="text-sm font-medium text-gray-600">Items per page:</span>
-              <select
-                value={pageSize}
-                onChange={(e) => {
-                  setPageSize(Number(e.target.value));
-                  setCurrentPage(1);
-                }}
-                className="bg-white border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-200"
-              >
-                <option value={5}>5</option>
-                <option value={10}>10</option>
-                <option value={15}>15</option>
-              </select>
-            </div>
+
+          {/* Page size */}
+          <div className="flex justify-center mb-6">
+            <select
+              value={pageSize}
+              onChange={(e) => {
+                setPageSize(Number(e.target.value));
+                setCurrentPage(1);
+              }}
+              className="border px-3 py-2 rounded"
+            >
+              <option value={5}>5</option>
+              <option value={10}>10</option>
+              <option value={15}>15</option>
+            </select>
           </div>
 
-          {/* Items List */}
-          <div className="bg-gray-50 rounded-xl p-4 mb-6">
-            <div className="flex items-center justify-between mb-4">
-              <span className="text-sm font-medium text-gray-600">
-                Showing {startIndex + 1}-{Math.min(startIndex + pageSize, data.length)} of {data.length} items
-              </span>
-            </div>
-            <div className="grid gap-3">
-              {currentItems.map((item, index) => (
-                <div
-                  key={index}
-                  className="bg-white p-4 rounded-lg border border-gray-200 hover:border-emerald-300 hover:shadow-md transition-all duration-200 transform hover:scale-[1.01]"
-                >
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full flex items-center justify-center text-white text-sm font-bold">
-                      {startIndex + index + 1}
-                    </div>
-                    <span className="text-gray-800 font-medium">{item}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Pagination Controls */}
-          <div className="flex items-center justify-between">
-            <div className="text-sm text-gray-600">
-              Page {currentPage} of {totalPages}
-            </div>
-
-            <div className="flex items-center space-x-2">
-              {/* Previous Button */}
-              <button
-                onClick={() => setCurrentPage(currentPage - 1)}
-                disabled={currentPage === 1}
-                className="flex items-center space-x-2 px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 hover:shadow-md"
-              >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-                <span className="hidden sm:inline">Previous</span>
-              </button>
-
-              {/* Page Numbers */}
-              <div className="flex items-center space-x-1">
-                {getVisiblePages().map((page, index) => (
-                  <button
-                    key={index}
-                    onClick={() => typeof page === 'number' && setCurrentPage(page)}
-                    disabled={page === '...'}
-                    className={`px-3 py-2 rounded-lg transition-all duration-200 ${
-                      page === currentPage
-                        ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-lg transform scale-105'
-                        : page === '...'
-                        ? 'cursor-default text-gray-400'
-                        : 'bg-white border border-gray-300 hover:bg-gray-50 hover:shadow-md'
-                    }`}
-                  >
-                    {page}
-                  </button>
-                ))}
+          {/* Items */}
+          <div className="space-y-2 mb-6">
+            {currentItems.map((item, index) => (
+              <div key={index} className="p-3 bg-gray-50 rounded">
+                {item}
               </div>
+            ))}
+          </div>
 
-              {/* Next Button */}
+          {/* Pagination */}
+          <div className="flex flex-wrap justify-center items-center gap-2">
+
+            <button
+              onClick={() => setCurrentPage(currentPage - 1)}
+              disabled={currentPage === 1}
+              className="px-3 py-2 border rounded disabled:opacity-50"
+            >
+              Prev
+            </button>
+
+            {getVisiblePages().map((page, index) => (
               <button
-                onClick={() => setCurrentPage(currentPage + 1)}
-                disabled={currentPage === totalPages}
-                className="flex items-center space-x-2 px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 hover:shadow-md"
+                key={index}
+                onClick={() => typeof page === "number" && setCurrentPage(page)}
+                disabled={page === "..."}
+                className={`px-3 py-2 rounded ${
+                  page === currentPage
+                    ? "bg-emerald-500 text-white"
+                    : "border"
+                } ${page === "..." && "cursor-default"}`}
               >
-                <span className="hidden sm:inline">Next</span>
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
+                {page}
               </button>
-            </div>
+            ))}
+
+            <button
+              onClick={() => setCurrentPage(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              className="px-3 py-2 border rounded disabled:opacity-50"
+            >
+              Next
+            </button>
+
           </div>
         </div>
       </div>

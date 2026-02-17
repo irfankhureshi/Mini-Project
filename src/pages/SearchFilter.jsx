@@ -14,19 +14,19 @@ const SearchFilter = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex items-center justify-center p-4">
-      <div className="w-full max-w-lg bg-white rounded-2xl shadow-2xl overflow-hidden">
+      <div className="w-full max-w-sm md:max-w-md lg:max-w-lg bg-white rounded-2xl shadow-2xl overflow-hidden">
         {/* Header */}
-        <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-6 text-white">
-          <h2 className="text-3xl font-bold text-center mb-2">
+        <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-5 md:p-6 lg:p-8 text-white">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">
             🔍 Search Filter
           </h2>
-          <p className="text-center text-blue-100">
+          <p className="text-center text-blue-100 text-sm md:text-base">
             Find users by name
           </p>
         </div>
 
         {/* Search Section */}
-        <div className="p-6">
+        <div className="p-5 md:p-6 lg:p-8">
           <div className="relative mb-6">
             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
               <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">

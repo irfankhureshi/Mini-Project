@@ -11,7 +11,7 @@ const Header = ({ onMenuClick }) => {
       {/* MOBILE MENU BUTTON */}
       <button
         onClick={onMenuClick}
-        className="md:hidden text-2xl font-bold hover:scale-110 transition-transform duration-200"
+        className="lg:hidden text-2xl font-bold hover:scale-110 transition-transform duration-200"
       >
         <Menu size={24} />
       </button>
@@ -22,14 +22,14 @@ const Header = ({ onMenuClick }) => {
           <Zap size={24} className="text-yellow-300" />
         </div>
         <h1 className="text-lg font-bold bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
-          My Dashboard
+          Mini-Projects
         </h1>
       </div>
 
       {/* RIGHT SIDE - Could add user menu or notifications */}
       <div className="hidden md:flex items-center space-x-4">
-        <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-          <span className="text-sm font-semibold">I</span>
+        <div className="">
+          <span className="text-lg font-semibold">Irfan Khureshi</span>
         </div>
       </div>
     </header>

@@ -27,11 +27,11 @@ const ApiFetch = () => {
   }, []);
 
   return (
-    <div className="w-full max-w-6xl mx-auto mt-6   bg-gradient-to-r from-indigo-800 via-purple-800  shadow-lg p-4 sm:p-6 rounded-2xl">
+    <div className="w-full max-w-6xl mx-auto mt-6 bg-gradient-to-r from-indigo-800 via-purple-800 shadow-lg p-4 sm:p-6 md:p-8 rounded-2xl">
 
       {/* Header */}
-      <div className="mb-4 bg-blue-700 text-white rounded-lg p-3 text-center">
-        <h1 className="font-bold text-xl sm:text-2xl underline">
+      <div className="mb-4 bg-blue-700 text-white rounded-lg p-3 sm:p-4 text-center">
+        <h1 className="font-bold text-xl sm:text-2xl md:text-3xl underline">
           API Data Fetch App
         </h1>
       </div>
@@ -47,7 +47,7 @@ const ApiFetch = () => {
           <p className="text-red-600 font-semibold">{error}</p>
           <button
             onClick={fetchApi}
-            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
           >
             Retry
           </button>
@@ -56,19 +56,19 @@ const ApiFetch = () => {
 
       {/* Data */}
       {!loading && !error && (
-        <ul className="space-y-4 max-h-[70vh] overflow-auto">
+        <div className="grid gap-4 md:gap-6 grid-cols-1 md:grid-cols-2 xl:grid-cols-1 max-h-[70vh] overflow-auto">
           {users.map(user => (
-            <li
+            <div
               key={user.id}
-              className="bg-pink-100  p-4 rounded-lg shadow"
+              className="bg-pink-100 p-4 md:p-6 rounded-lg shadow hover:shadow-md transition-shadow"
             >
-              <h2 className="font-bold text-lg text-gray-800 mb-1">
+              <h2 className="font-bold text-base md:text-lg text-gray-800 mb-2">
                 {user.title}
               </h2>
-              <p className="text-gray-600">{user.body}</p>
-            </li>
+              <p className="text-gray-600 text-sm md:text-base leading-relaxed">{user.body}</p>
+            </div>
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );

@@ -20,7 +20,7 @@ const App = () => {
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 text-gray-900">
       
       {/* HEADER */}
-      <Header onMenuClick={() => setSidebarOpen(true)} />
+      <Header onMenuClick={() => setSidebarOpen(!sidebarOpen)} />
 
       {/* LAYOUT */}
       <div className="flex flex-1">
@@ -32,8 +32,8 @@ const App = () => {
         />
 
         {/* MAIN CONTENT */}
-        <main className="flex-1 lg:ml-64 pt-20 px-6 lg:px-8 pb-8 overflow-auto">
-          <div className="max-w-7xl mx-auto">
+        <main className={`flex-1 lg:ml-72 ${sidebarOpen ? 'ml-56 md:ml-64' : ''} pt-28 px-4 sm:px-6 lg:px-8 pb-6 overflow-auto`}>
+          <div className="max-w-5xl mx-auto ">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/counter" element={<Counter />} />

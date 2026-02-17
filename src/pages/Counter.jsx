@@ -7,17 +7,17 @@ const Counter = () => {
   return (
     <div className="animate-fade-in">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
+        <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
           Counter Component
         </h1>
-        <p className="text-gray-600">
+        <p className="text-sm md:text-base text-gray-600">
           A simple counter with increment, decrement, and reset functionality.
         </p>
       </div>
 
-      <div className="bg-white p-8 rounded-2xl shadow-xl hover-lift text-center space-y-6 max-w-md mx-auto">
+      <div className="bg-white p-6 md:p-8 rounded-2xl shadow-xl hover-lift text-center space-y-6 max-w-md mx-auto">
         <div className="space-y-4">
-          <div className="text-6xl font-bold text-gray-800 transition-all duration-300">
+          <div className="text-5xl md:text-6xl font-bold text-gray-800 transition-all duration-300">
             {count}
           </div>
           <div className="text-sm text-gray-500 uppercase tracking-wide">
@@ -25,24 +25,24 @@ const Counter = () => {
           </div>
         </div>
 
-        <div className="flex justify-center gap-4">
+        <div className="flex flex-col sm:flex-row md:flex-row justify-center gap-4">
           <button
             onClick={() => setCount(count - 1)}
-            className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105 flex items-center justify-center"
+            className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105 flex items-center justify-center w-full sm:w-auto"
           >
             <Minus size={24} />
           </button>
 
           <button
             onClick={() => setCount(0)}
-            className="bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 text-white p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105 flex items-center justify-center"
+            className="bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 text-white p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105 flex items-center justify-center w-full sm:w-auto"
           >
             <RotateCcw size={24} />
           </button>
 
           <button
             onClick={() => setCount(count + 1)}
-            className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105 flex items-center justify-center"
+            className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105 flex items-center justify-center w-full sm:w-auto"
           >
             <Plus size={24} />
           </button>

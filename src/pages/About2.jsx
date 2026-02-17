@@ -23,22 +23,22 @@ const About2 = () => {
   ]
 
   return (
-    <div className="min-h-screen bg-gray-900 w-full mt-4 mx-4">
+    <div className="min-h-screen bg-gray-900 w-full mt-4 mx-2 md:mx-4">
 
       <div className="bg-gray-700 shadow-sm">
-        <div className="max-w-4xl mx-auto px-4 py-8">
+        <div className="max-w-4xl md:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-white mb-4">
+            <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
               About This Project
             </h1>
-            <p className="text-lg text-gray-300">
+            <p className="text-base md:text-lg text-gray-300">
               A comprehensive React learning and demonstration platform
             </p>
           </div>
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto px-4 py-12">
+      <div className="max-w-4xl md:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         
         <div className="bg-gray-800 rounded-lg shadow-md p-8 mb-8">
           <h2 className="text-2xl font-semibold text-white mb-4">

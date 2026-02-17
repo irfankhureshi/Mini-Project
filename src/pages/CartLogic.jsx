@@ -84,16 +84,16 @@ const CartLogic = () => {
         </button>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
 
         {/* Products Section */}
         <div className="space-y-6">
           <div className="flex items-center gap-3 mb-6">
             <Package size={24} className="text-blue-600" />
-            <h2 className="text-2xl font-semibold text-gray-900">Available Products</h2>
+            <h2 className="text-lg md:text-2xl font-semibold text-gray-900">Available Products</h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {products.map(product => (
               <div
                 key={product.id}
@@ -140,11 +140,11 @@ const CartLogic = () => {
                   {cart.map(item => (
                     <div
                       key={item.id}
-                      className="flex flex-col sm:flex-row items-center justify-between bg-gray-50 rounded-lg p-4 hover:bg-gray-100 transition-colors"
+                      className="flex flex-col md:flex-row items-center justify-between bg-gray-50 rounded-lg p-4 hover:bg-gray-100 transition-colors gap-4 md:gap-2"
                     >
-                      <div className="flex-1 mb-3 sm:mb-0">
-                        <h3 className="font-semibold text-gray-900">{item.name}</h3>
-                        <p className="text-gray-600">${item.price.toLocaleString()} each</p>
+                      <div className="flex-1 mb-2 md:mb-0 text-center md:text-left">
+                        <h3 className="font-semibold text-gray-900 text-base md:text-lg">{item.name}</h3>
+                        <p className="text-gray-600 text-sm md:text-base">${item.price.toLocaleString()} each</p>
                       </div>
 
                       <div className="flex items-center space-x-3">

@@ -61,23 +61,23 @@ const Contact2 = () => {
   ]
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 w-full mt-4">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 w-full">
       
       <div className="bg-white dark:bg-gray-800 shadow-sm">
-        <div className="max-w-4xl mx-auto px-4 py-8">
+        <div className="max-w-4xl md:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
               Get In Touch
             </h1>
-            <p className="text-lg text-gray-600 dark:text-gray-300">
+            <p className="text-base md:text-lg text-gray-600 dark:text-gray-300">
               We'd love to hear from you. Send us a message and we'll respond as soon as possible.
             </p>
           </div>
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           
           <div>
             <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
@@ -117,8 +117,8 @@ const Contact2 = () => {
           </div>
 
           
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8">
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 md:p-8">
+            <h2 className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white mb-6">
               Send us a Message
             </h2>
 

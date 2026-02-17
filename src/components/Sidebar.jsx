@@ -23,7 +23,7 @@ const Sidebar = ({ isOpen, onClose }) => {
       {isOpen && (
         <div
           onClick={onClose}
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden"
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden"
         />
       )}
 
@@ -31,18 +31,18 @@ const Sidebar = ({ isOpen, onClose }) => {
       <aside
         className={`
           fixed top-16 left-0 z-50
-          w-64 h-[calc(100vh-4rem)]
+          w-48 md:w-56 lg:w-64 h-[calc(100vh-4rem)]
           bg-gradient-to-b from-slate-800 via-slate-900 to-slate-800
           text-white shadow-2xl
           transform transition-transform duration-300 ease-in-out
           ${isOpen ? "translate-x-0" : "-translate-x-full"}
-          md:translate-x-0
+          lg:translate-x-0
           border-r border-slate-700
         `}
       >
         <div className="p-6 border-b border-slate-700">
           <h2 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-            Navigation
+            Dashboard
           </h2>
           <p className="text-sm text-slate-400 mt-1">Explore the features</p>
         </div>
@@ -58,9 +58,9 @@ const Sidebar = ({ isOpen, onClose }) => {
 
         {/* Footer */}
         <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-slate-700">
-          <p className="text-xs text-slate-500 text-center">
+          {/* <p className="text-xs text-slate-500 text-center">
             Built with React & Tailwind
-          </p>
+          </p> */}
         </div>
       </aside>
     </>
