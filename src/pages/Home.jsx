@@ -27,7 +27,7 @@ const Home = () => {
   return (
     <div className="w-full space-y-4 animate-fade-in">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 rounded-2xl  md:px-12 py-6 text-white shadow-xl hover-lift ">
+      <div className="bg-gradient-to-r pl-3 from-blue-600 via-purple-600 to-indigo-700 rounded-2xl  md:px-12 py-6 text-white shadow-xl hover-lift ">
         <div className="max-w-4xl">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent ">
             Welcome to My Mini-Projects App
